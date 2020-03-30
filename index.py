@@ -86,3 +86,17 @@ def escreverArquivo(dic):
             arquivo.write(str(elementos))
             arquivo.write("\n")
     arquivo.close()
+
+#Check Registration
+def checarCadastro():
+    '''Function to check if there is a patient record'''
+    dic = lerArquivoUsuario()
+    chaves = dic.keys()
+    cpf = input("Paciente(CPF): ")
+    cont = 0
+    for chave in chaves:
+        if(chave == cpf):
+            cont+=1
+    if(cont == 0):
+        print("Paciente não cadastrado")
+    return (cpf, cont)
