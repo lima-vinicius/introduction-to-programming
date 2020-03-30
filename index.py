@@ -16,6 +16,41 @@ def datetime ():
     datahora = data.strftime("%d/%m/%Y %H:%M")
     return datahora
 
+# All functions to read file
+def lerArquivoUsuario():
+    '''Function to return patients registered in a dictionary'''
+    arquivo = open("users.txt", "r")
+    elementos = arquivo.readlines()
+    arquivo.close()
+    tupla = elementosTupla(elementos)
+    dic = lerDicionarioUsuario(tupla)
+    return dic
+
+def elementosTupla(elementos):
+    '''Function to return patients registered in a tuple'''
+    tupla = ()
+    for palavras in elementos:
+        tupla += (palavras, )
+    tuplaNova = ()
+    stringNova = ""
+    for elemento in tupla:
+        for caractere in elemento:
+            if caractere != "\n":
+                stringNova += caractere
+            else:
+                tuplaNova += (stringNova, )
+                stringNova = ""
+    return tuplaNova
+
+def lerDicionarioUsuario(tupla):
+    '''Function to return a dictionary of registered patients'''
+    dic = {}
+    cont = 0
+    while(cont < len(tupla)):
+        dic[tupla[cont]] = tupla[cont+1 : cont+11]
+        cont += 11
+    return dic
+
 #All the functions to writing
 def criacaoCadastro():
     '''Function to create a patient record'''
@@ -37,6 +72,7 @@ def criacaoCadastro():
 
 def adicionarDicionario(nome, cpf, rg, idade, estado, cidade, rua, numero, data, dataAtualizacao, dataConsulta):
     '''Function to add the patient record to a dictionary'''
+    dic = lerArquivoUsuario()
     dic[cpf] = ((nome), (rg), (idade), (estado), (cidade), (rua), (numero), (data), (dataAtualizacao), (dataConsulta))
     escreverArquivo(dic)
 
