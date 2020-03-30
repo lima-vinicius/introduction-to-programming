@@ -190,9 +190,17 @@ def listaEspera():
             listaEspera()
 
 #Update last registration
-
 def atualizarConsulta(chave):
     '''Function to modify the date and time of the patient's last appointment'''
     dic = lerArquivoUsuario()
     dic[chave] = (dic[chave][0], dic[chave][1], dic[chave][2], dic[chave][3], dic[chave][4], dic[chave][5], dic[chave][6], dic[chave][7], dic[chave][8], datetime())
     escreverArquivo(dic)
+
+#Write to wait list
+def escreverEspera(tupla):
+    '''Function to write the patient on the waiting list'''
+    arquivo = open("waitinglist.txt", "w")
+    for elemento in tupla:
+        arquivo.write(str(elemento))
+        arquivo.write("\n")
+    arquivo.close()
