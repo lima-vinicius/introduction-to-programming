@@ -155,3 +155,12 @@ def excluirCadastro():
     print("Cadastro do paciente excluido")
     print("<-------------------------------------------->")
     escreverArquivo(dic)
+
+# Waiting List (Reception)
+def lerArquivoEspera():
+    '''Function to read patients on the waiting list'''
+    arquivo = open("listadeespera.txt", "r")
+    elementos = arquivo.readlines()
+    arquivo.close()
+    tupla = elementosTupla(elementos)
+    return tupla
