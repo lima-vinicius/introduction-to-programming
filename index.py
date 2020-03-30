@@ -188,3 +188,11 @@ def listaEspera():
         if(resp == 1):
             criacaoCadastro()
             listaEspera()
+
+#Update last registration
+
+def atualizarConsulta(chave):
+    '''Function to modify the date and time of the patient's last appointment'''
+    dic = lerArquivoUsuario()
+    dic[chave] = (dic[chave][0], dic[chave][1], dic[chave][2], dic[chave][3], dic[chave][4], dic[chave][5], dic[chave][6], dic[chave][7], dic[chave][8], datetime())
+    escreverArquivo(dic)
