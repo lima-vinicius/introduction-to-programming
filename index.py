@@ -100,3 +100,22 @@ def checarCadastro():
     if(cont == 0):
         print("Paciente não cadastrado")
     return (cpf, cont)
+
+#View registration
+def lerCadastro():
+    '''Function to view patient record'''
+    dic = lerArquivoUsuario()
+    chave = checarCadastro()
+    if(chave[1] == 1):
+        print("<-------------------------------------------->")
+        print("\nNome: {}".format(dic[chave[0]][0]))
+        print("RG: {}".format(dic[chave[0]][1]))
+        print("Idade: {}".format(dic[chave[0]][2]))
+        print("UF: {}".format(dic[chave[0]][3]))
+        print("Cidade: {}".format(dic[chave[0]][4]))
+        print("Rua: {}".format(dic[chave[0]][5]))
+        print("Número: {}".format(dic[chave[0]][6]))
+        print("Data do cadastro: {}".format(dic[chave[0]][7]))
+        print("Data da última autalização: {}\n".format(dic[chave[0]][8]))
+        print("Data da última Consulta: {}\n".format(dic[chave[0]][9]))
+        print("<-------------------------------------------->")
