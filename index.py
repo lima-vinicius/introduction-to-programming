@@ -164,3 +164,27 @@ def lerArquivoEspera():
     arquivo.close()
     tupla = elementosTupla(elementos)
     return tupla
+
+def listaEspera():
+    '''Function to add a patient to the waiting list'''
+    tupla = lerArquivoEspera()
+    print("<-------------------------------------------->")
+    chave = checarCadastro()
+    if (chave[1] == 1):
+        dic = lerArquivoUsuario()
+        usuario = dic[chave[0]]
+        sintoma1 = input("Qual sintoma 1: ")
+        sintoma2 = input("Qual sintoma 2: ")
+        print("<-------------------------------------------->")
+        tupla += (usuario[0], usuario[2], sintoma1, sintoma2, usuario[9],)
+        user = chave[0]
+        atualizarConsulta(user)
+    escreverEspera(tupla)
+    if (chave[1] == 0):
+        print("<-------------------------------------------->")
+        print("Para realizar uma consulta, o paciente precisa estar cadastrado!")
+        resp = int(input("Fazer Cadastro(1- SIM 2-NÃO): "))
+        print("<-------------------------------------------->")
+        if(resp == 1):
+            criacaoCadastro()
+            listaEspera()
