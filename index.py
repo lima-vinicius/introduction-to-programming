@@ -144,3 +144,14 @@ def atualizar ():
         print("Informação Atualizada")
         print("<-------------------------------------------->")
         escreverArquivo(dic)
+
+#Deleting Patient registration
+def excluirCadastro():
+    '''Function to delete patient registration'''
+    dic = lerArquivoUsuario()
+    print("<-------------------------------------------->")
+    chave = input("Usuario(CPF):")
+    del(dic[chave])
+    print("Cadastro do paciente excluido")
+    print("<-------------------------------------------->")
+    escreverArquivo(dic)
