@@ -119,3 +119,28 @@ def lerCadastro():
         print("Data da última autalização: {}\n".format(dic[chave[0]][8]))
         print("Data da última Consulta: {}\n".format(dic[chave[0]][9]))
         print("<-------------------------------------------->")
+
+#Updating Patient Registration
+def atualizar ():
+    '''Function to update patient record information'''
+    dic = lerArquivoUsuario()
+    chave = checarCadastro()
+    if(chave[1] == 1):
+        print("<-------------------------------------------->")
+        print("1- Idade 2- Estado 3- Cidade 4- Rua 5- Número")
+        resp = int(input("Digite o número correspondente a informação que deseja atualizar: "))
+        informacao = input("Digite a nova informação: ")
+        if(resp == 1):
+            dic[chave[0]] = (dic[chave[0]][0], dic[chave[0]][1], informacao, dic[chave[0]][3], dic[chave[0]][4], dic[chave[0]][5], dic[chave[0]][6], dic[chave[0]][7], dic[chave[0]][8], dic[chave[0]][9])
+        if(resp == 2):
+            dic[chave[0]] = (dic[chave[0]][0], dic[chave[0]][1], dic[chave[0]][2], informacao, dic[chave[0]][4], dic[chave[0]][5], dic[chave[0]][6], dic[chave[0]][7], dic[chave[0]][8], dic[chave[0]][9])
+        if(resp == 3):
+            dic[chave[0]] = (dic[chave[0]][0], dic[chave[0]][1], dic[chave[0]][2], dic[chave[0]][3], informacao, dic[chave[0]][5], dic[chave[0]][6], dic[chave[0]][7], dic[chave[0]][8], dic[chave[0]][9])
+        if(resp == 4):
+            dic[chave[0]] = (dic[chave[0]][0], dic[chave[0]][1], dic[chave[0]][2], dic[chave[0]][3], dic[chave[0]][4], informacao, dic[chave[0]][6], dic[chave[0]][7], dic[chave[0]][8], dic[chave[0]][9])
+        if(resp == 5):
+            dic[chave[0]] = (dic[chave[0]][0], dic[chave[0]][1], dic[chave[0]][2], dic[chave[0]][3], dic[chave[0]][4], dic[chave[0]][5], informacao, dic[chave[0]][7], dic[chave[0]][8], dic[chave[0]][9])
+        dic[chave[0]] = (dic[chave[0]][0], dic[chave[0]][1], dic[chave[0]][2], dic[chave[0]][3], dic[chave[0]][4], dic[chave[0]][5], dic[chave[0]][6], dic[chave[0]][7], datetime(), dic[chave[0]][9])
+        print("Informação Atualizada")
+        print("<-------------------------------------------->")
+        escreverArquivo(dic)
