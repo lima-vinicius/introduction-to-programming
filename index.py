@@ -300,3 +300,16 @@ def excluirFuncionario():
     print("Cadastro do funcionario excluido")
     print("<-------------------------------------------->")
     escreverArquivoLogin(dic)
+
+#Login
+def lerArquivoLogin():
+    '''Função para retornar um dicionario dos logins cadastrados'''
+    arquivo = open("login.txt", "r")
+    elementos = arquivo.readlines()
+    arquivo.close()
+    tupla = elementosTupla(elementos)
+    dic = criarDicionarioLogin(tupla)
+    chaves = dic.keys()
+    if(("") in chaves):
+        del(dic[""])
+    return dic
