@@ -1,16 +1,19 @@
 <p align="center">
-    <img width="350px" src="https://www.python.org/static/community_logos/python-logo.png" alt="Python logo"/>
+    <img width="350px" src="https://penseemti.com.br/wp-content/uploads/2019/01/python-logo.png" alt="Python logo"/>
 </p>
 
 # Introduction to programming 
  Final project regarding the Introduction to Programming course, taught by Professor Dr. Fernando Neto at the Computer Center at the Federal University of Pernambuco - Brazil.
+
+### Project brief
+
 
 ### First Steps
 
 Initially, clone the repository:
 
 ```
-git clone https://github.com/viniciuslima-99/introduction-to-web-development.git
+git clone https://github.com/viniciuslima-99/introduction-to-programming.git
 ```
 
 ## Technology
@@ -33,9 +36,9 @@ Must begin with the name of the branch you developed on, following the model: _�
 
 Must be simple and show briefly what you just did.
 
-Ex: `git commit -m “Feature(issue_name) : Added ...”`
-Ex: `git commit -m “Bugfix(issue_name) : Changed ...”`
-Ex: `git commit -m “Hotfix(issue_name) : Fix ...”`
+- Ex: `git commit -m “Feature(issue_name) : Added ...”`
+- Ex: `git commit -m “Bugfix(issue_name) : Changed ...”`
+- Ex: `git commit -m “Hotfix(issue_name) : Fix ...”`
 
 ### Pull Requests
 First, proceed with _rebase_:
@@ -56,7 +59,7 @@ Use this template for the pull request body:
 
 - Second thing I did...
 
-**How I did:**
+**How to test:**
 
 - First step to execute the project...
 
