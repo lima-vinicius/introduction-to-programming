@@ -303,7 +303,7 @@ def excluirFuncionario():
 
 #Login
 def lerArquivoLogin():
-    '''Função para retornar um dicionario dos logins cadastrados'''
+    '''Function to return a dictionary of registered logins'''
     arquivo = open("login.txt", "r")
     elementos = arquivo.readlines()
     arquivo.close()
@@ -312,4 +312,13 @@ def lerArquivoLogin():
     chaves = dic.keys()
     if(("") in chaves):
         del(dic[""])
+    return dic
+
+def criarDicionarioLogin(tupla):
+    '''Função para colocar os dados de login em uma dicionario'''
+    dic = {}
+    cont = 0
+    while(cont < len(tupla)):
+        dic[tupla[cont]] = tupla[cont+1 : cont+4]
+        cont += 4
     return dic
