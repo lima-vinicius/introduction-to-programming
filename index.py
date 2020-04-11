@@ -288,3 +288,15 @@ def promover ():
     print("Funcionario Promovido")
     print("<-------------------------------------------->")
     escreverArquivoLogin(dic)
+
+#Delete employee registration
+def excluirFuncionario():
+    '''Function to delete employee registration'''
+    dic = lerArquivoLogin()
+    informacaoChaves()
+    print("<-------------------------------------------->")
+    chave = input("Digite a chave:")
+    del(dic[chave])
+    print("Cadastro do funcionario excluido")
+    print("<-------------------------------------------->")
+    escreverArquivoLogin(dic)
