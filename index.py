@@ -257,3 +257,18 @@ def informacaoChaves ():
         for chave in dic2:
             print("Chave de Acesso: {}\nSenha: {}\nNome: {}\nNível Acesso: {}\n".format(chave, dic2[chave][1], dic2[chave][2], dic2[chave][0]))
         print("<-------------------------------------------->")
+
+def totalCadastro():
+    '''Função para retornar a quantidade de cadastro de Pacientes e Funcionarios'''
+    dic1 = lerArquivoUsuario()
+    dic2 = lerArquivoLogin()
+    qntPaciente = len(dic1)
+    qntLogin = len(dic2)
+    print("<-------------------------------------------->")
+    resp = int(input("1- Quantidade de Funcionários 2- Quantidade de Pacientes: "))
+    if(resp == 1):
+        print("\nAtualmente o Hospistal possui {} funcionários\n".format(qntLogin))
+        print("<-------------------------------------------->")
+    elif(resp == 2):
+        print("\nAtualmente o Hospital possui {} Pacientes\n".format(qntPaciente))
+        print("<-------------------------------------------->")
