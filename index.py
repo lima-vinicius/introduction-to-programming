@@ -300,3 +300,70 @@ def excluirFuncionario():
     print("Cadastro do funcionario excluido")
     print("<-------------------------------------------->")
     escreverArquivoLogin(dic)
+
+#Login
+def lerArquivoLogin():
+    '''Function to return a dictionary of registered logins'''
+    arquivo = open("login.txt", "r")
+    elementos = arquivo.readlines()
+    arquivo.close()
+    tupla = elementosTupla(elementos)
+    dic = criarDicionarioLogin(tupla)
+    chaves = dic.keys()
+    if(("") in chaves):
+        del(dic[""])
+    return dic
+
+def criarDicionarioLogin(tupla):
+    '''Function for placing login data in a dictionary'''
+    dic = {}
+    cont = 0
+    while(cont < len(tupla)):
+        dic[tupla[cont]] = tupla[cont+1 : cont+4]
+        cont += 4
+    return dic
+
+def criarLogin():
+    '''Function to create a login'''
+    print("<-------------------------------------------->")
+    acesso = input("1- Recepção 2- Médico: ")
+    nome = input("Nome: ")
+    cpf = input("CPF: ")
+    senha = input("Senha: ")
+    print("Funcionario cadastrado")
+    print("<-------------------------------------------->")
+    adicionarDicionarioLogin(cpf, acesso, senha, nome)
+
+def adicionarDicionarioLogin(cpf, acesso, senha, nome):
+    '''Function to put the registered login data in a dictionary'''
+    dic = lerArquivoLogin() 
+    dic[cpf] = ((acesso), (senha), (nome))
+    escreverArquivoLogin(dic)
+
+def escreverArquivoLogin(dic):
+    '''Function to write registered logins'''
+    arquivo = open("login.txt", "w")
+    for chave in dic:
+        arquivo.write(str(chave))
+        arquivo.write("\n")
+        for elementos in dic[chave]:
+            arquivo.write(str(elementos))
+            arquivo.write("\n")
+    arquivo.close()
+
+def checarLogin():
+    '''Function to check if the login is registered'''
+    dic = lerArquivoLogin()
+    chaves = dic.keys()
+    cpf = input("Usuario(CPF): ")
+    senha = input("Senha: ")
+    print("<-------------------------------------------->")
+    flag = False
+    for chave in chaves:
+        if(chave == cpf) and (dic[chave][1] == senha):
+            flag = True
+            return dic[chave]
+    if(flag == False):
+        
+        print("Usuario não cadastrado")
+        print("<-------------------------------------------->\n")
