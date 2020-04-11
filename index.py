@@ -339,3 +339,14 @@ def adicionarDicionarioLogin(cpf, acesso, senha, nome):
     dic = lerArquivoLogin() 
     dic[cpf] = ((acesso), (senha), (nome))
     escreverArquivoLogin(dic)
+
+def escreverArquivoLogin(dic):
+    '''Function to write registered logins'''
+    arquivo = open("login.txt", "w")
+    for chave in dic:
+        arquivo.write(str(chave))
+        arquivo.write("\n")
+        for elementos in dic[chave]:
+            arquivo.write(str(elementos))
+            arquivo.write("\n")
+    arquivo.close()
