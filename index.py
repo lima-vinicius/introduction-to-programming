@@ -350,3 +350,20 @@ def escreverArquivoLogin(dic):
             arquivo.write(str(elementos))
             arquivo.write("\n")
     arquivo.close()
+
+def checarLogin():
+    '''Function to check if the login is registered'''
+    dic = lerArquivoLogin()
+    chaves = dic.keys()
+    cpf = input("Usuario(CPF): ")
+    senha = input("Senha: ")
+    print("<-------------------------------------------->")
+    flag = False
+    for chave in chaves:
+        if(chave == cpf) and (dic[chave][1] == senha):
+            flag = True
+            return dic[chave]
+    if(flag == False):
+        
+        print("Usuario não cadastrado")
+        print("<-------------------------------------------->\n")
