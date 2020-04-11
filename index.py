@@ -16,6 +16,8 @@ def datetime ():
     datahora = data.strftime("%d/%m/%Y %H:%M")
     return datahora
 
+#RECEPTION PROGRAM
+
 # All functions to read file
 def lerArquivoUsuario():
     '''Function to return patients registered in a dictionary'''
@@ -204,3 +206,15 @@ def escreverEspera(tupla):
         arquivo.write(str(elemento))
         arquivo.write("\n")
     arquivo.close()
+
+#DOCTOR PROGRAM
+
+##View registration
+def quantidadePessoa():
+    '''Function to return the number of patients on the waiting list'''
+    from math import floor
+    tupla = lerArquivoEspera()
+    qntPessoa = floor(len(tupla) / 5)
+    print("<-------------------------------------------->")
+    print("No momento existem {} Pessoas na lista de espera".format(qntPessoa))
+    print("<-------------------------------------------->")
