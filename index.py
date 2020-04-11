@@ -234,3 +234,69 @@ def exibirEspera():
     print("<-------------------------------------------->")
     print("Não tem pacientes na lista de espera")
     print("<-------------------------------------------->")
+
+#DIRECTOR PROGRAM
+
+#File Information
+def informacaoChaves ():
+    '''Function to return patient and employee registration keys'''
+    dic1 = lerArquivoUsuario()
+    dic2 = lerArquivoLogin()
+    print("<-------------------------------------------->")
+    resp = int(input("1- Cadastro dos Pacientes 2- Cadastro dos Funcionarios: "))
+    if (resp == 1):
+        for chave in dic1:
+            print("\nChave de Acesso: {}\nNome: {}\n".format(chave, dic1[chave][0]))
+            print("<-------------------------------------------->")
+        resp1 = int(input("Deseja acessar informações?(1- SIM 2- NÃO):"))
+        
+        if(resp1 == 1):
+            lerCadastro()
+            print("<-------------------------------------------->")
+    if (resp == 2):
+        print("\nNiveis de Acesso: 1- Recepção 2- Médico 3- Direção\n")
+        for chave in dic2:
+            print("Chave de Acesso: {}\nSenha: {}\nNome: {}\nNível Acesso: {}\n".format(chave, dic2[chave][1], dic2[chave][2], dic2[chave][0]))
+        print("<-------------------------------------------->")
+
+def totalCadastro():
+    '''Function to return the amount of registration of Patients and Staff'''
+    dic1 = lerArquivoUsuario()
+    dic2 = lerArquivoLogin()
+    qntPaciente = len(dic1)
+    qntLogin = len(dic2)
+    print("<-------------------------------------------->")
+    resp = int(input("1- Quantidade de Funcionários 2- Quantidade de Pacientes: "))
+    if(resp == 1):
+        print("\nAtualmente o Hospistal possui {} funcionários\n".format(qntLogin))
+        print("<-------------------------------------------->")
+    elif(resp == 2):
+        print("\nAtualmente o Hospital possui {} Pacientes\n".format(qntPaciente))
+        print("<-------------------------------------------->")
+
+#Promote employee
+def promover ():
+    '''Function to modify the employee's access level'''
+    dic = lerArquivoLogin()
+    print("<-------------------------------------------->")
+    print("1- Recepcao 2- Médico 3- Diretor")
+    for chave in dic:
+        print("\nNome: {}\nChave: {}\nNivel De Acesso: {}\n".format(dic[chave][2], chave, dic[chave][0]))
+    chave = input("Digite a chave do funcionário: ")
+    nivel = input("1- Recepcao 2- Médico 3- Diretor: ")
+    dic[chave] = (nivel, dic[chave][1], dic[chave][2])
+    print("Funcionario Promovido")
+    print("<-------------------------------------------->")
+    escreverArquivoLogin(dic)
+
+#Delete employee registration
+def excluirFuncionario():
+    '''Function to delete employee registration'''
+    dic = lerArquivoLogin()
+    informacaoChaves()
+    print("<-------------------------------------------->")
+    chave = input("Digite a chave:")
+    del(dic[chave])
+    print("Cadastro do funcionario excluido")
+    print("<-------------------------------------------->")
+    escreverArquivoLogin(dic)

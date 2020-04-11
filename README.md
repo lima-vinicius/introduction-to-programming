@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="350px" src="https://penseemti.com.br/wp-content/uploads/2019/01/python-logo.png" alt="Python logo"/>
+    <img width="400px" src="https://penseemti.com.br/wp-content/uploads/2019/01/python-logo.png" alt="Python logo"/>
 </p>
 
 # Introduction to programming 
