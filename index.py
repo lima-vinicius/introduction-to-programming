@@ -333,3 +333,9 @@ def criarLogin():
     print("Funcionario cadastrado")
     print("<-------------------------------------------->")
     adicionarDicionarioLogin(cpf, acesso, senha, nome)
+
+def adicionarDicionarioLogin(cpf, acesso, senha, nome):
+    '''Function to put the registered login data in a dictionary'''
+    dic = lerArquivoLogin() 
+    dic[cpf] = ((acesso), (senha), (nome))
+    escreverArquivoLogin(dic)
