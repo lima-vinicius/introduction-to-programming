@@ -237,6 +237,7 @@ def exibirEspera():
 
 #DIRECTOR PROGRAM
 
+#File Information
 def informacaoChaves ():
     '''Function to return patient and employee registration keys'''
     dic1 = lerArquivoUsuario()
@@ -259,7 +260,7 @@ def informacaoChaves ():
         print("<-------------------------------------------->")
 
 def totalCadastro():
-    '''Função para retornar a quantidade de cadastro de Pacientes e Funcionarios'''
+    '''Function to return the amount of registration of Patients and Staff'''
     dic1 = lerArquivoUsuario()
     dic2 = lerArquivoLogin()
     qntPaciente = len(dic1)
@@ -272,3 +273,18 @@ def totalCadastro():
     elif(resp == 2):
         print("\nAtualmente o Hospital possui {} Pacientes\n".format(qntPaciente))
         print("<-------------------------------------------->")
+
+#Promote employee
+def promover ():
+    '''Function to modify the employee's access level'''
+    dic = lerArquivoLogin()
+    print("<-------------------------------------------->")
+    print("1- Recepcao 2- Médico 3- Diretor")
+    for chave in dic:
+        print("\nNome: {}\nChave: {}\nNivel De Acesso: {}\n".format(dic[chave][2], chave, dic[chave][0]))
+    chave = input("Digite a chave do funcionário: ")
+    nivel = input("1- Recepcao 2- Médico 3- Diretor: ")
+    dic[chave] = (nivel, dic[chave][1], dic[chave][2])
+    print("Funcionario Promovido")
+    print("<-------------------------------------------->")
+    escreverArquivoLogin(dic)
