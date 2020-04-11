@@ -6,7 +6,7 @@
  Final project regarding the Introduction to Programming course, taught by Professor Dr. Fernando Neto at the Computer Center at the Federal University of Pernambuco - Brazil.
 
 ### Project brief
-
+This system was created with the purpose of optimizing communication within hospitals, including reception staff, doctors and the director. All are interconnected, one depending on the other. In the reception system we have several functionalities, such as creating a patient's record, reading this record, updating and also deleting, within the reception program, you also have the option of placing a patient on the waiting list to be seen. In the doctor's system, he can know the number of people who are on the waiting list waiting for care, he can also start seeing patients, knowing in advance what they are feeling and ending the consultation. In the director's system he has all the control of the hospital, he can create a register for the employees, he can know the number of patients and employees registered, he can read all the information of the patients and employees, he can change the level of access of the employees and also you can delete an employee's registration. The system database is made in txt files. The system also has features like login, access levels and also has a log file, to generate a history of what was done and who did it, the database of the log file is in a csv file.
 
 ### First Steps
 
