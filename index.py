@@ -234,3 +234,26 @@ def exibirEspera():
     print("<-------------------------------------------->")
     print("Não tem pacientes na lista de espera")
     print("<-------------------------------------------->")
+
+#DIRECTOR PROGRAM
+
+def informacaoChaves ():
+    '''Function to return patient and employee registration keys'''
+    dic1 = lerArquivoUsuario()
+    dic2 = lerArquivoLogin()
+    print("<-------------------------------------------->")
+    resp = int(input("1- Cadastro dos Pacientes 2- Cadastro dos Funcionarios: "))
+    if (resp == 1):
+        for chave in dic1:
+            print("\nChave de Acesso: {}\nNome: {}\n".format(chave, dic1[chave][0]))
+            print("<-------------------------------------------->")
+        resp1 = int(input("Deseja acessar informações?(1- SIM 2- NÃO):"))
+        
+        if(resp1 == 1):
+            lerCadastro()
+            print("<-------------------------------------------->")
+    if (resp == 2):
+        print("\nNiveis de Acesso: 1- Recepção 2- Médico 3- Direção\n")
+        for chave in dic2:
+            print("Chave de Acesso: {}\nSenha: {}\nNome: {}\nNível Acesso: {}\n".format(chave, dic2[chave][1], dic2[chave][2], dic2[chave][0]))
+        print("<-------------------------------------------->")
