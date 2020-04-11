@@ -209,7 +209,6 @@ def escreverEspera(tupla):
 
 #DOCTOR PROGRAM
 
-##View registration
 def quantidadePessoa():
     '''Function to return the number of patients on the waiting list'''
     from math import floor
@@ -217,4 +216,21 @@ def quantidadePessoa():
     qntPessoa = floor(len(tupla) / 5)
     print("<-------------------------------------------->")
     print("No momento existem {} Pessoas na lista de espera".format(qntPessoa))
+    print("<-------------------------------------------->")
+
+def exibirEspera():
+    '''Function to read patient data on the waiting list and end consultation'''
+    tupla = lerArquivoEspera()
+    cont = 0
+    while(cont < len(tupla)):
+        print("<-------------------------------------------->")
+        print("Nome: {}\nIdade: {}\nSintoma1: {}\nSintoma2: {}".format(tupla[cont], tupla[cont+1],tupla[cont+2],tupla[cont+3]))
+        resp = int(input("Terminar Consulta?(1- SIM):"))
+        print("<-------------------------------------------->")
+        if(resp == 1):
+            cont += 5
+    arquivo = open("listadeespera.txt", "w")
+    arquivo.close()
+    print("<-------------------------------------------->")
+    print("Não tem pacientes na lista de espera")
     print("<-------------------------------------------->")
