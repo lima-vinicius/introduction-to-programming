@@ -315,10 +315,21 @@ def lerArquivoLogin():
     return dic
 
 def criarDicionarioLogin(tupla):
-    '''Função para colocar os dados de login em uma dicionario'''
+    '''Function for placing login data in a dictionary'''
     dic = {}
     cont = 0
     while(cont < len(tupla)):
         dic[tupla[cont]] = tupla[cont+1 : cont+4]
         cont += 4
     return dic
+
+def criarLogin():
+    '''Function to create a login'''
+    print("<-------------------------------------------->")
+    acesso = input("1- Recepção 2- Médico: ")
+    nome = input("Nome: ")
+    cpf = input("CPF: ")
+    senha = input("Senha: ")
+    print("Funcionario cadastrado")
+    print("<-------------------------------------------->")
+    adicionarDicionarioLogin(cpf, acesso, senha, nome)
