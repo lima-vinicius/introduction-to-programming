@@ -367,3 +367,29 @@ def checarLogin():
         
         print("Usuario não cadastrado")
         print("<-------------------------------------------->\n")
+
+#Log Function
+
+def log(cpf, funcao):
+    '''Function to generate a list with the navigation history in the program'''
+    log = []
+    nivel = ""
+    if (cpf[0] == "1"):
+        nivel = "Recepção"
+    if (cpf[0] == "2"):
+        nivel = "Médico"
+    if (cpf[0] == "3"):
+        nivel = "Diretor"
+    log.append(datetime())
+    log.append(cpf[2])
+    log.append(nivel)
+    log.append(funcao)
+    escreverLog(log)
+
+def escreverLog(lista):
+    '''Function to write the navigation history in a csv file'''
+    import csv
+    arquivo = open("log.csv", "a", newline="")
+    writer = csv.writer(arquivo)
+    writer.writerow(lista)
+    arquivo.close()
