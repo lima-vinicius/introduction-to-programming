@@ -385,3 +385,11 @@ def log(cpf, funcao):
     log.append(nivel)
     log.append(funcao)
     escreverLog(log)
+
+def escreverLog(lista):
+    '''Function to write the navigation history in a csv file'''
+    import csv
+    arquivo = open("log.csv", "a", newline="")
+    writer = csv.writer(arquivo)
+    writer.writerow(lista)
+    arquivo.close()
