@@ -393,3 +393,102 @@ def escreverLog(lista):
     writer = csv.writer(arquivo)
     writer.writerow(lista)
     arquivo.close()
+
+
+ #ALL PROGRAM
+
+#Reception Program
+def programaRecepcao():
+    '''Function of the complete reception program; Create Registration, Read Registration, Update Registration, Delete Registration, Add patient on the waiting list and Logout.'''
+    flag = True
+    login = checarLogin()
+    if (login != None) and (login[0] == "1"):
+        print("Seja Bem Vindo Recepcionista {}".format(login[2]))
+        log(login, "Realizou Login")
+        while(flag == True):
+            resp = int(input("""\n1- Cadastrar
+2- Ler Cadastro
+3- Atualizar
+4- Excluir(Paciente)
+5- Consulta
+6- Logout
+Resposta: """))
+            if (resp == 1):    
+                criacaoCadastro()
+                arquivo = log(login, "Criou Cadastro")
+                print(arquivo)
+            elif (resp == 2):
+                lerCadastro()
+                log(login, "Leu Cadastro")
+            elif (resp == 3):
+                atualizar()
+                log(login, "Atualizou Cadastro")
+            elif (resp == 4):
+                excluirCadastro()
+                log(login, "Excluiu Cadastro")
+            elif(resp == 5):
+                listaEspera()
+                log(login, "Adicionou paciente na lista de Espera")
+            elif(resp == 6):    
+                flag = False
+                log(login, "Realizou Logout")
+
+#Doctor Program
+def programaMedico():
+    '''Function of the complete doctor program; Check how many patients on the waiting list, Perform pending consultations on the waiting list and Logout.'''
+    flag = True
+    login = checarLogin()
+    if (login != None) and (login[0] == "2"):
+        log(login, "Realizou Login")
+        print("Seja Bem Vindo Medico {}".format(login[2]))
+        while(flag == True):
+            resp = int(input("""\n1- Lista de Espera
+2- Realizar Consulta
+3- Logout
+Resposta: """))
+    
+            if(resp == 1):
+                quantidadePessoa()
+                log(login, "Checou a quantiadade paciente na lista de Espera")
+            elif(resp == 2):
+                exibirEspera()
+                log(login, "Realizou consultas na lista de Espera")
+            elif(resp == 3):
+                flag = False
+                log(login, "Realizou Logout")
+
+#Principal Program
+def programaDirecao():
+    '''Function of the complete principal program; Check the Hospital's registration total, Check the Hospital's registration keys, Create employee login, Modify employee access level,
+Delete employee registration and Logout.'''
+    flag = True
+    login = checarLogin() 
+    if (login != None) and (login[0] == "3"):
+        log(login, "Realizou Login")
+        print("Seja Bem Vindo Diretor {}\n".format(login[2]))
+        while(flag == True):
+            resp = int(input("""\n1- Quantidade Cadastros (Pacientes e Funcionarios)
+2- Ler Informações(Pacientes e Funcionarios)
+3- Criar Cadastro Para Funcionarios
+4- Promover Funcionário(Atualizar nível de acesso)
+5- Excluir (Funcioanarios)
+6- Logout
+Resposta: """))
+            if(resp == 1):
+                totalCadastro()
+                log(login, "Checou o total de cadastro do Hospital")
+            elif(resp == 2):
+                informacaoChaves()
+                log(login, "Checou as chaves de cadastro do Hospital")
+            elif(resp == 3):
+                criarLogin()
+                log(login, "Criou Login de acesso")
+            elif(resp == 4):
+                promover()
+                log(login, "Modificou o nível de acesso de um funcionário")
+            elif(resp == 5):
+                excluirFuncionario()
+                log(login, "Excluiu o cadastro de um funcionário")
+            elif(resp == 6):
+                flag = False
+                log(login, "Realizou Logout")
