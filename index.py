@@ -432,3 +432,27 @@ Resposta: """))
             elif(resp == 6):    
                 flag = False
                 log(login, "Realizou Logout")
+
+#Doctor Program
+    def programaMedico():
+        '''Function of the complete doctor program; Check how many patients on the waiting list, Perform pending consultations on the waiting list and Logout.'''
+        flag = True
+        login = checarLogin()
+        if (login != None) and (login[0] == "2"):
+            log(login, "Realizou Login")
+            print("Seja Bem Vindo Medico {}".format(login[2]))
+            while(flag == True):
+                resp = int(input("""\n1- Lista de Espera
+    2- Realizar Consulta
+    3- Logout
+    Resposta: """))
+        
+                if(resp == 1):
+                    quantidadePessoa()
+                    log(login, "Checou a quantiadade paciente na lista de Espera")
+                elif(resp == 2):
+                    exibirEspera()
+                    log(login, "Realizou consultas na lista de Espera")
+                elif(resp == 3):
+                    flag = False
+                    log(login, "Realizou Logout")
