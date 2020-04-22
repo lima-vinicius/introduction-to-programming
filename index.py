@@ -492,3 +492,25 @@ Resposta: """))
             elif(resp == 6):
                 flag = False
                 log(login, "Realizou Logout")
+
+#Program Menu
+def menuPrograma():
+    '''Full program menu function; Reception, Doctor and Principal'''
+    flag = True
+    while (flag == True):
+        resp = input("""<---------------Seja Bem vindo--------------->
+\nDigite seu nivel de acesso\n
+1- Recepção
+2- Medico
+3- Diretor
+4- Logout
+Resposta: """)
+        if(resp == "1"):
+            programaRecepcao()
+        if(resp == "2"):
+            programaMedico()
+        if(resp == "3"):
+            programaDirecao()
+        if(resp == "4"):
+            flag = False
+menuPrograma()
