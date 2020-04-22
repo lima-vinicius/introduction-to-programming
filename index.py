@@ -393,3 +393,42 @@ def escreverLog(lista):
     writer = csv.writer(arquivo)
     writer.writerow(lista)
     arquivo.close()
+
+
+ #ALL PROGRAM
+
+#Reception Program
+def programaRecepcao():
+    '''Function of the complete reception program; Create Registration, Read Registration, Update Registration, Delete Registration, Add patient on the waiting list and Logout.'''
+    flag = True
+    login = checarLogin()
+    if (login != None) and (login[0] == "1"):
+        print("Seja Bem Vindo Recepcionista {}".format(login[2]))
+        log(login, "Realizou Login")
+        while(flag == True):
+            resp = int(input("""\n1- Cadastrar
+2- Ler Cadastro
+3- Atualizar
+4- Excluir(Paciente)
+5- Consulta
+6- Logout
+Resposta: """))
+            if (resp == 1):    
+                criacaoCadastro()
+                arquivo = log(login, "Criou Cadastro")
+                print(arquivo)
+            elif (resp == 2):
+                lerCadastro()
+                log(login, "Leu Cadastro")
+            elif (resp == 3):
+                atualizar()
+                log(login, "Atualizou Cadastro")
+            elif (resp == 4):
+                excluirCadastro()
+                log(login, "Excluiu Cadastro")
+            elif(resp == 5):
+                listaEspera()
+                log(login, "Adicionou paciente na lista de Espera")
+            elif(resp == 6):    
+                flag = False
+                log(login, "Realizou Logout")
